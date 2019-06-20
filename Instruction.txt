@@ -1,0 +1,42 @@
+登录局域网：
+wh.jiuletech.com  //如果登录不上可能是网络域名的问题
+
+内网工作证明目录：
+\\file.jiuletech.com\个人文件夹\zhouzhijun\工作证明\2019年第1周
+
+擦除nordic的已有程序：
+nrfjprog.exe --eraseall
+
+生成DFU升级的key命令：
+nrfutil keys generate D:\work\project\DFU\private.pem
+nrfutil keys display --key pk --format code  D:\work\project\DFU\private.pem --out_file D:\work\project\DFU\dfu_public_key.c
+nrfutil pkg generate --hw-version 52 --application-version 1 --application app.hex --sd-req 0xAF --key-file private.pem dfufile.zip
+
+cm IP:
+192.168.1.212
+
+数据库服务地址：
+192.168.1.13
+
+内网git服务器路径：
+gitlab.jiuletech.com 
+
+公网克隆代码到本地命令：
+git@gitlab.jiuletech.com:sheng/normal_data_process_python.git
+git clone -b master http://gitlab.jiuletech.com/sheng/normal_data_process_python.git
+
+git clone -b master https://github.com/weedangel/LearnCPP.git
+
+查看个人数据地址：
+http://api.releasetest.jiuletech.com/data/t3_data.php
+http://api.releasetest.jiuletech.com/data/t3_bp.php?filter_name=16452
+
+将python2的print替换成python3的print：
+print[ ]*([^\n]*) ==> print($1)
+
+设置蓝牙模块的配置命令：
+AT+BAUD7
+AT+POWE7
+AT+NAMEJLB1-12
+
+
