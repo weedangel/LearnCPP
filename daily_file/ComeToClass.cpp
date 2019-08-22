@@ -31,7 +31,12 @@ int main(int argc, char *argv[])
             cout << comeToClass[i] << ", ";
         }
     }
-    cout << endl << "All class time" << endl;
+    
+    if (i % 4)
+    {
+        cout << endl;
+    }
+    cout <<"All class time" << endl;
     
     return 0;
 }
