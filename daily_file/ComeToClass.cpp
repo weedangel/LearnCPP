@@ -10,7 +10,8 @@ using namespace std;
 
 unsigned int comeToClass[] = 
 {
-    20190526, 20190627, 20190803, 2019
+    20190526, 20190627, 20190803, 20190902,
+    2019
 };
 
 int main(int argc, char *argv[])
