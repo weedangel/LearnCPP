@@ -101,9 +101,21 @@ void TestBase<T1, T2>::GetArea()
     cout << "widthData: " << widthData << endl;
 }
 
-#if 0
-/* 不知道为什么这个编译不过去 */
-template <typename T2> void TestBase<int, T2>::GetArea()
+#if 1
+/* 部分具体化类模板时，必须先部分具体化类，在接着具体化这个类相关的成员函数 */
+template <typename T1>
+class TestBase<T1, string> {
+private:
+    T1 lenData;
+    string widthData;
+public:
+    TestBase(): lenData(1.0), widthData(1.0) {};
+    TestBase(T1 len, string width): lenData(len), widthData(width) {};
+    
+    void GetArea();    
+};
+
+template <typename T1> void TestBase<T1, string>::GetArea()
 {
     //cout << "area: " << lenData * stod(widthData) << endl;
     cout << "lenData int: " << lenData << endl;
@@ -130,10 +142,10 @@ int main(int argc, char *argv[])
     
     CoutDoubleData(aTest, aString);
     
-    TestBase<double, double> barA(3.5, 4.2);
+    TestBase<int, int> barA(3, 4);
     barA.GetArea();
     
-    TestBase<int, double> barB(5, 5.5);
+    TestBase<double, string> barB(5.5, "5.6");
     barB.GetArea();
      
     return 0;
