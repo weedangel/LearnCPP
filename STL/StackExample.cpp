@@ -97,6 +97,11 @@ int main(int argc, char *argv[])
                 cout << "Arithmetic expression is empty, please input it again..." << endl;
                 continue;
             }
+            
+            /******************************************************************************************
+            * remove()算法移除表达式中的空格，移除方式是覆盖方式，移除完毕后元字符串的末尾还存在重复的
+            * 字符，调用erase方法将末尾重复的部分擦掉，remove()返回的是一个迭代器，可以作为erase的参数
+            ******************************************************************************************/
             calcExpress.erase(remove(begin(calcExpress), end(calcExpress), ' '), end(calcExpress));
             
             indexString = 0, indexOffset = 0;
