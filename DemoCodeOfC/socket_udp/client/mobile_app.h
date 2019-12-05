@@ -1,0 +1,47 @@
+#ifndef _MOBILE_APP_H
+#define _MOBILE_APP_H
+
+#define FRAME_START 0x5a5a
+#define FRAME_END 0x0d0a
+
+#define WATCH_APP_DEVICE  0x02
+#define MOBILE_APP_DEVICE 0x03
+
+/* mobile app send to watch app */
+#define QUERY_WATCH_DEVICE_INFO     0x0000
+#define NOTIFY_WATCH_NORMAL_DATA    0x0008
+#define UPGRADE_WATCH_APP_DATA      0x000A
+#define NOTIFY_WATCH_SLEEP_DATA     0x0016
+#define NOTIFY_WATCH_HEARTRATE_BASE 0x0017
+#define NOTIFY_WATCH_REALTIME_DATA  0x0018
+#define NOTIFY_WATCH_CLOCK_DATA     0x001A
+#define NOTIFY_WATCH_SITLONG_DATA   0x001B
+#define QUERY_WATCH_ACTIVE_STATUS   0x001D
+#define QUERY_WATCH_MOTION_DATA     0x001F
+#define NOTIFY_WATCH_CALL_REMINDER  0x002A 
+#define NOTIFY_WATCH_MSG_REMINDER   0x002B
+#define NOTIFY_WATCH_MOTION_RESULT  0x002F
+
+/* watch app send to mobile app */
+#define WATCH_DEVICE_INFO_DATA          0x0000
+#define WATCH_DEVCIE_NORMAL_DATA        0x0008
+#define WATCH_DEVCIE_UPGRADE_DATA       0x000A
+#define WATCH_DEVCIE_SLEEP_DATA         0x0016
+#define WATCH_DEVCIE_HEARTRATE_DATA     0x0017
+#define WATCH_DEVCIE_ORIGINAL_DATA      0x0018
+#define WATCH_DEVCIE_CLOCK_DATA         0x001A
+#define WATCH_DEVCIE_SITLONG_DATA       0x001B
+#define WATCH_DEVCIE_ACTIVE_STATUS_DATA 0x001D
+#define WATCH_DEVCIE_MOTION_DATA        0x001F
+#define WATCH_DEVCIE_CALL_REMINDER_DATA 0x002A 
+#define WATCH_DEVCIE_MSG_REMINDER_DATA  0x002B
+#define WATCH_DEVCIE_ERROR_FRAME_DATA   0x002D 
+#define WATCH_DEVCIE_MOTION_RESULT_DATA 0x002F
+
+#define RESERVED_DATA_BYTE 0x00
+
+
+extern int one_complete_frame_check(char *data_buf, int data_len);
+extern int process_recv_cmd_info(char *data_buf, int data_len, char *res_buf);
+
+#endif  //_MOBILE_APP_H
